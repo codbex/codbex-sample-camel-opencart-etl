@@ -1,0 +1,34 @@
+- route:
+    id: orders-in-sync-route
+    description: Sync orders from OpenCart stores
+    from:
+      uri: cron:TriggerOrdersReplication
+      id: trigger-orders-replication-cron
+      parameters:
+        schedule: 0/15 * * * * ?
+      description: Trigger Orders Replication
+      steps:
+        - log:
+            id: log-about-to-start-orders-in-replication
+            message: Replicating orders from OpenCart...
+            loggingLevel: INFO
+            logName: OpenCartOrdersReplication
+        - setProperty:
+            id: set-js-orders-1
+            description: Set JS file
+            name: resource
+            expression:
+              constant:
+                id: get-all-orders-8de2
+                expression: orders-etl/sync/get-all-orders.ts
+        - to:
+            id: get-all-relevant-stores
+            description: Get all relevant stores
+            uri: class
+            parameters:
+              beanName: org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+        - log:
+            id: log-orders-replication-completed
+            message: Successfully replicated orders from OpenCart
+            loggingLevel: INFO
+            logName: OpenCartOrdersReplication

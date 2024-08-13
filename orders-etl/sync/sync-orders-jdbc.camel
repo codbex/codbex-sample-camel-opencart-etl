@@ -1,0 +1,66 @@
+- route:
+    id: route-bdeb
+    description: Sync orders from OpenCart
+    nodePrefixId: route-ae8
+    from:
+      uri: cron:TriggerOrdersReplication
+      id: trigger-orders-replication-cron
+      parameters:
+        schedule: 0/20 * * * * ?
+      description: Trigger Orders Replication
+      steps:
+        - log:
+            id: log-ac34
+            description: Log starting
+            message: Replicating orders from OpenCart...
+            loggingLevel: INFO
+            logName: OpenCartOrdersReplication
+        - setBody:
+            id: create-order-select-statement
+            description: Create orders SELECT statement
+            expression:
+              simple:
+                id: simple-5db1
+                expression: SELECT * FROM oc_order
+        - to:
+            id: execute-get-orders
+            description: Get all orders
+            uri: spring-jdbc
+            parameters:
+              dataSourceName: OpenCartDB
+        - split:
+            id: split-to-single-order
+            description: Split to single order
+            expression:
+              simple:
+                id: simple-ffe9
+                expression: ${body}
+            steps:
+              - setBody:
+                  id: create-order-merge-statement
+                  description: Create MERGE statement
+                  expression:
+                    simple:
+                      id: simple-7d10
+                      expression: |
+                        MERGE INTO ORDERS 
+                            (ID, TOTAL, DATEADDED) 
+                        KEY(ID)
+                        VALUES 
+                            (
+                                ${body['order_id']},
+                                ${body['total']},
+                                '${body['date_added']}'
+                            );
+              - to:
+                  id: merge-order
+                  description: Merge order
+                  uri: spring-jdbc
+                  parameters:
+                    dataSourceName: DefaultDB
+        - log:
+            id: log-orders-replication-completed
+            description: Log completed
+            message: Successfully replicated orders from OpenCart
+            loggingLevel: INFO
+            logName: OpenCartOrdersReplication

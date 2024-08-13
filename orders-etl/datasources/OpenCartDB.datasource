@@ -1,0 +1,8 @@
+{
+    "location": "/orders-etl/datasources/OpenCartDB.datasource",
+    "name": "OpenCartDB",
+    "driver": "org.mariadb.jdbc.Driver",
+    "url": "jdbc:mariadb://localhost:3306/bitnami_opencart",
+    "username": "bn_opencart",
+    "password": "bitnami" 
+}
