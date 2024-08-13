@@ -7,7 +7,10 @@ A sample application for ETL
 - Start OpenCart instance
 ```shell
 export DOCKER_COMPOSE_PATH='~/work/git/codbex-sample-camel-opencart-etl/opencart/docker-compose.yml'
-docker-compose -f "$DOCKER_COMPOSE_PATH" down -v
+
+# Stops and removes all containers 
+# add -v if you want to remove all volumes as well
+docker-compose -f "$DOCKER_COMPOSE_PATH" down 
 
 export OPENCART_USERNAME='myuser'
 export OPENCART_PASSWORD='myuser'
