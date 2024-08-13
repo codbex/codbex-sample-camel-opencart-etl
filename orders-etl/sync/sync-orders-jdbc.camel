@@ -3,11 +3,12 @@
     description: Sync orders from OpenCart
     nodePrefixId: route-ae8
     from:
-      uri: cron:TriggerOrdersReplication
       id: trigger-orders-replication-cron
-      parameters:
-        schedule: 0 * * ? * *
       description: Trigger Orders Replication
+      uri: cron
+      parameters:
+        schedule: 0/10 * * * * ?
+        name: TriggerOrdersReplication
       steps:
         - log:
             id: log-ac34
@@ -15,6 +16,14 @@
             message: Replicating orders from OpenCart...
             loggingLevel: INFO
             logName: OpenCartOrdersReplicationJDBC
+        - setProperty:
+            id: set-rate-property
+            description: Set USD to EUR rate property
+            name: rate
+            expression:
+              simple:
+                id: simple-7c58
+                expression: '0.92'
         - setBody:
             id: create-order-select-statement
             description: Create orders SELECT statement
@@ -49,7 +58,7 @@
                         VALUES 
                             (
                                 ${body['order_id']},
-                                ${body['total']},
+                                ${body['total']} * ${exchangeProperty.rate},
                                 '${body['date_added']}'
                             );
               - to:
