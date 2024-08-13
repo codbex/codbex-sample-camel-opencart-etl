@@ -17,7 +17,7 @@ export OPENCART_DATABASE_PASSWORD='bitnami'
 export OPENCART_DATABASE_NAME='bitnami_opencart'
 docker-compose -f "$DOCKER_COMPOSE_PATH" up -d 
 ```
-- Access the instance at [http://localhost/](http://localhost/)
+- Access the instance at [http://localhost:80/](http://localhost:80/)
 
-- Access the admin UI at [http://localhost/admin](http://localhost/admin) - use user `myuser` and password `myuser`
+- Access the admin UI at [http://localhost:80/admin](http://localhost:80/admin) - use user `myuser` and password `myuser`
 

@@ -12,7 +12,7 @@
             id: log-about-to-start-orders-in-replication
             message: Replicating orders from OpenCart...
             loggingLevel: INFO
-            logName: OpenCartOrdersReplication
+            logName: OpenCartOrdersReplicationTS
         - setProperty:
             id: set-js-orders-1
             description: Set JS file
@@ -31,4 +31,4 @@
             id: log-orders-replication-completed
             message: Successfully replicated orders from OpenCart
             loggingLevel: INFO
-            logName: OpenCartOrdersReplication
+            logName: OpenCartOrdersReplicationTS

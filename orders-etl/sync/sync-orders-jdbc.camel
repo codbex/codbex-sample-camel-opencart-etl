@@ -14,7 +14,7 @@
             description: Log starting
             message: Replicating orders from OpenCart...
             loggingLevel: INFO
-            logName: OpenCartOrdersReplication
+            logName: OpenCartOrdersReplicationJDBC
         - setBody:
             id: create-order-select-statement
             description: Create orders SELECT statement
@@ -63,4 +63,4 @@
             description: Log completed
             message: Successfully replicated orders from OpenCart
             loggingLevel: INFO
-            logName: OpenCartOrdersReplication
+            logName: OpenCartOrdersReplicationJDBC
