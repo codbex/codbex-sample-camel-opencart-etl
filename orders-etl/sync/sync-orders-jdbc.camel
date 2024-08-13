@@ -18,8 +18,8 @@
             logName: OpenCartOrdersReplicationJDBC
         - setProperty:
             id: set-rate-property
-            description: Set USD to EUR rate property
-            name: rate
+            description: Set USD to EU exchange rate property
+            name: exchangeRate
             expression:
               simple:
                 id: simple-7c58
@@ -58,7 +58,7 @@
                         VALUES 
                             (
                                 ${body['order_id']},
-                                ${body['total']} * ${exchangeProperty.rate},
+                                ${body['total']} * ${exchangeProperty.exchangeRate},
                                 '${body['date_added']}'
                             );
               - to:

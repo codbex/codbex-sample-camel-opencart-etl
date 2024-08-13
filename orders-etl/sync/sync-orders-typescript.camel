@@ -2,11 +2,12 @@
     id: orders-in-sync-route
     description: Sync orders from OpenCart stores
     from:
-      uri: cron:TriggerOrdersReplication
       id: trigger-orders-replication-cron
+      description: Trigger Orders Replication
+      uri: cron
       parameters:
         schedule: 10 * * ? * *
-      description: Trigger Orders Replication
+        name: TriggerOrdersReplication
       steps:
         - log:
             id: log-about-to-start-orders-in-replication
