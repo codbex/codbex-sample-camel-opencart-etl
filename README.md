@@ -6,7 +6,7 @@ A sample application for ETL
 ### Configure OpenCart
 - Start OpenCart instance
 ```shell
-export DOCKER_COMPOSE_PATH='~/work/git/codbex-sample-camel-opencart-etl/opencart/docker-compose.yml'
+export DOCKER_COMPOSE_PATH='/codbex-sample-camel-opencart-etl/opencart/docker-compose.yml'
 
 # Stops and removes all containers 
 # add -v if you want to remove all volumes as well
