@@ -1,5 +1,0 @@
-{
-    "module": "orders-etl/gen/orders-etl/ui/entities/Order/dialog-filter/view.js",
-    "extensionPoint": "orders-etl-dialog-window",
-    "description": "orders-etl - Application Dialog Window"
-}

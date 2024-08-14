@@ -6,7 +6,7 @@
       description: Trigger Orders Replication
       uri: cron
       parameters:
-        schedule: 10 * * ? * *
+        schedule: 0/10 * * ? * *
         name: TriggerOrdersReplication
       steps:
         - log:
@@ -16,7 +16,7 @@
             logName: OpenCartOrdersReplicationTS
         - setProperty:
             id: set-js-orders-1
-            description: Set JS file
+            description: Set get-all-orders.ts file
             name: resource
             expression:
               constant:
@@ -28,6 +28,29 @@
             uri: class
             parameters:
               beanName: org.eclipse.dirigible.components.engine.camel.invoke.Invoker
+        - split:
+            id: split-to-single-order
+            description: Split to single order
+            expression:
+              simple:
+                id: simple-60cb
+                expression: ${body}
+            steps:
+              - setProperty:
+                  id: setProperty-8a5e
+                  description: Set merger-order.ts file
+                  name: resource
+                  expression:
+                    constant:
+                      id: constant-0a9e
+                      expression: orders-etl/sync/merger-order.ts
+              - to:
+                  id: to-eb1b
+                  description: Merge order
+                  uri: class
+                  parameters:
+                    beanName: >-
+                      org.eclipse.dirigible.components.engine.camel.invoke.Invoker
         - log:
             id: log-orders-replication-completed
             message: Successfully replicated orders from OpenCart

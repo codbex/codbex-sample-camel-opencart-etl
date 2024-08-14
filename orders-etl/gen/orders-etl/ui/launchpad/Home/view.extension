@@ -1,5 +1,0 @@
-{
-    "module": "orders-etl/gen/orders-etl/ui/launchpad/Home/view.js",
-    "extensionPoint": "orders-etl-view",
-    "description": "orders-etl - Application View"
-}

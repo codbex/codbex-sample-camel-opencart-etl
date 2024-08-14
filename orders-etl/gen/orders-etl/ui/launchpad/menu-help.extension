@@ -1,5 +1,0 @@
-{
-    "module": "orders-etl/gen/orders-etl/ui/launchpad/menu-help.js",
-    "extensionPoint": "orders-etl-menu",
-    "description": "orders-etl - Application Menu"
-}
