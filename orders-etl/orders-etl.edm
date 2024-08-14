@@ -1,0 +1,14 @@
+<model>
+ <entities>
+  <entity name="Order" dataName="ORDER" dataCount="SELECT COUNT(*) AS COUNT FROM &quot;${tablePrefix}ORDER&quot;" dataQuery="" type="PRIMARY" title="Order" caption="Manage entity Order" tooltip="Order" icon="/services/web/resources/unicons/file.svg" menuKey="order" menuLabel="Order" menuIndex="100" layoutType="MANAGE" navigationPath="/Home" perspectiveName="entities" perspectiveLabel="Entities" perspectiveIcon="/services/web/resources/unicons/copy.svg" perspectiveOrder="100" perspectiveRole="" generateReport="false">
+    <property name="Id" dataName="ORDER_ID" dataType="INTEGER" dataNullable="true" dataPrimaryKey="true" dataAutoIncrement="true" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
+    <property name="Total" dataName="ORDER_TOTAL" dataType="DECIMAL" dataNullable="false" dataPrecision="15" dataScale="4" widgetType="NUMBER" widgetSize="" widgetLength="19" widgetIsMajor="true"></property>
+    <property name="DateAdded" dataName="ORDER_DATEADDED" dataType="TIMESTAMP" dataNullable="false" widgetType="DATETIME-LOCAL" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
+  </entity>
+ </entities>
+ <perspectives>
+ </perspectives>
+ <navigations>
+ </navigations>
+ <mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="1c172392-8d59-4a59-f4af-a6cb5c3b484b" style="entity" parent="1" vertex="1"><Entity name="Order" dataName="ORDER" dataCount="SELECT COUNT(*) AS COUNT FROM &quot;${tablePrefix}ORDER&quot;" title="Order" caption="Manage entity Order" tooltip="Order" menuLabel="Order" type="Entity" menuKey="order" as="value"/><mxGeometry x="70" y="60" width="200" height="106" as="geometry"><mxRectangle width="200" height="28" as="alternateBounds"/></mxGeometry></mxCell><mxCell id="2e2dbb0d-c6f3-3569-93a1-6cf6be4af3d6" parent="1c172392-8d59-4a59-f4af-a6cb5c3b484b" vertex="1" connectable="0"><Property name="Id" dataType="INTEGER" dataLength="0" dataPrimaryKey="true" dataAutoIncrement="true" dataName="ORDER_ID" as="value"/><mxGeometry y="28" width="200" height="26" as="geometry"/></mxCell><mxCell id="bae0bf2e-c8ba-4f98-9768-ddca284ed4ef" parent="1c172392-8d59-4a59-f4af-a6cb5c3b484b" vertex="1" connectable="0"><Property name="Total" dataName="ORDER_TOTAL" dataType="DECIMAL" dataPrecision="15" dataScale="4" widgetLength="19" widgetType="NUMBER" dataNotNull="true" as="value"/><mxGeometry y="54" width="200" height="26" as="geometry"/></mxCell><mxCell id="aa15de2a-3dd5-a17f-8a35-cc3bed2378b5" parent="1c172392-8d59-4a59-f4af-a6cb5c3b484b" vertex="1" connectable="0"><Property name="DateAdded" dataName="ORDER_DATEADDED" dataType="TIMESTAMP" dataPrecision="NaN" dataScale="NaN" widgetType="DATETIME-LOCAL" dataNotNull="true" as="value"/><mxGeometry y="80" width="200" height="26" as="geometry"/></mxCell></root></mxGraphModel>
+</model>

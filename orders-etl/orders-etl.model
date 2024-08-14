@@ -1,0 +1,66 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "ORDER_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataName": "ORDER_TOTAL",
+                        "dataNullable": "false",
+                        "dataPrecision": "15",
+                        "dataScale": "4",
+                        "dataType": "DECIMAL",
+                        "name": "Total",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "19",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "dataName": "ORDER_DATEADDED",
+                        "dataNullable": "false",
+                        "dataType": "TIMESTAMP",
+                        "name": "DateAdded",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DATETIME-LOCAL"
+                    }
+                ],
+                "caption": "Manage entity Order",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ORDER\"",
+                "dataName": "ORDER",
+                "dataQuery": "",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "order",
+                "menuLabel": "Order",
+                "name": "Order",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "Entities",
+                "perspectiveName": "entities",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "Order",
+                "tooltip": "Order",
+                "type": "PRIMARY"
+            }
+        ],
+        "perspectives": [],
+        "navigations": []
+    }
+}

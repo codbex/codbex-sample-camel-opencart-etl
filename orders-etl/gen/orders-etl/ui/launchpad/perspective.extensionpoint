@@ -1,0 +1,4 @@
+{
+    "name": "orders-etl-perspective",
+    "description": "orders-etl - Extension Point for the Application Perspective Providers"
+}

@@ -1,0 +1,4 @@
+{
+    "name": "orders-etl-entities-Order",
+    "description": "Extension Point for the orders-etl-entities-Order entity"
+}

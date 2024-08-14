@@ -1,8 +1,9 @@
+import { oc_orderRepository } from "orders-etl/dao/oc_orderRepository";
+
 export function onMessage(message: any) {
-    const body: any = message.getBody();
+    const repository = new oc_orderRepository();
+    const openCartOrders = repository.findAll();
 
-    console.log("Executing logic in the handler get-all-orders.ts");
-
-    message.setBody(body);
+    message.setBody(openCartOrders);
     return message;
 }
