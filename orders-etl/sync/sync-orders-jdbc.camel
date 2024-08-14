@@ -1,8 +1,6 @@
 - route:
-    id: route-bdeb
+    id: orders-sync-route-jdbc
     description: Sync orders from OpenCart
-    nodePrefixId: route-ae8
-    autoStartup: true
     from:
       id: trigger-orders-replication-cron
       description: Trigger Orders Replication
@@ -14,9 +12,9 @@
         - log:
             id: log-ac34
             description: Log starting
-            message: Replicating orders from OpenCart...
+            message: Replicating orders from OpenCart using JDBC...
             loggingLevel: INFO
-            logName: OpenCartOrdersReplicationJDBC
+            logName: OpenCartOrdersReplication
         - setProperty:
             id: set-rate-property
             description: Set USD to EU exchange rate property
@@ -71,6 +69,6 @@
         - log:
             id: log-orders-replication-completed
             description: Log completed
-            message: Successfully replicated orders from OpenCart
+            message: Successfully replicated orders from OpenCart using JDBC
             loggingLevel: INFO
-            logName: OpenCartOrdersReplicationJDBC
+            logName: OpenCartOrdersReplication
