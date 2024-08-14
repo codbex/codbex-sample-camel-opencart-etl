@@ -20,7 +20,7 @@
         - setProperty:
             id: set-rate-property
             description: Set USD to EU exchange rate property
-            name: exchangeRate
+            name: currencyExchangeRate
             expression:
               simple:
                 id: simple-7c58
@@ -59,7 +59,7 @@
                         VALUES 
                             (
                                 ${body['order_id']},
-                                ${body['total']} * ${exchangeProperty.exchangeRate},
+                                ${body['total']} * ${exchangeProperty.currencyExchangeRate},
                                 '${body['date_added']}'
                             );
               - to:
