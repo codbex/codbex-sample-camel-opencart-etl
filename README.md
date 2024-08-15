@@ -24,3 +24,14 @@ docker-compose -f "$DOCKER_COMPOSE_PATH" up -d
 
 - Access the admin UI at [http://localhost:80/admin](http://localhost:80/admin) - use user `myuser` and password `myuser`
 
+### Start iapetus instance
+```shell
+WORKSPACE_DIR='/tmp/iapetus'
+IMAGE_VERSION='0.20.0' # use version 0.20.0 or later
+
+docker run --name codbex-iapetus --rm -p 8080:80 \
+    --network opencart_network \
+    -v "$WORKSPACE_DIR:/target/dirigible" \
+    ghcr.io/codbex/codbex-iapetus:$IMAGE_VERSION
+
+```
