@@ -24,8 +24,8 @@
                 id: get-all-orders-8de2
                 expression: orders-etl/sync/get-all-orders.ts
         - to:
-            id: get-all-relevant-stores
-            description: Get all relevant stores
+            id: get-all-oc-orders
+            description: Get all OpenCart orders
             uri: class
             parameters:
               beanName: org.eclipse.dirigible.components.engine.camel.invoke.Invoker
