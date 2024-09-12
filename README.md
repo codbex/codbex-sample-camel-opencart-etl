@@ -1,5 +1,6 @@
 # codbex-sample-camel-opencart-etl
-A sample application for ETL
+An [Iapetus](https://www.codbex.com/products/iapetus/) sample project for ETL.<br>
+More details about the project in [this blog](https://www.codbex.com/technology/2024/08/19/orders-etl/).
 
 ## Steps
 
